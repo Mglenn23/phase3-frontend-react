@@ -25,9 +25,9 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
 
-          <Route exact path="CreateCard" element={<CreateCard />} />
-          <Route exact path="Leaderboard" element={<Leaderboard />} />
-          <Route exact path="GamePlay" element={<GamePlay />} />
+          <Route exact path="/phase3-frontend-react/CreateCard" element={<CreateCard />} />
+          <Route exact path="/phase3-frontend-react/Leaderboard" element={<Leaderboard />} />
+          <Route exact path="/phase3-frontend-react/GamePlay" element={<GamePlay />} />
         </Routes>
       </div>
     </div>
