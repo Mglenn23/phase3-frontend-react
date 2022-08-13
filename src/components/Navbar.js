@@ -15,17 +15,17 @@ function CardNavbar() {
           </Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link>
-              <NavLink to="/GamePlay" exact className="CardNavbar">
+              <NavLink to="/phase3-frontend-react/GamePlay" exact className="CardNavbar">
                 Card Game
               </NavLink>
             </Nav.Link>
             <Nav.Link>
-              <NavLink to="/Leaderboard" exact className="CardNavbar">
+              <NavLink to="/phase3-frontend-react/Leaderboard" exact className="CardNavbar">
                 Leader Board
               </NavLink>
             </Nav.Link>
             <Nav.Link>
-              <NavLink to="/CreateCard" exact className="CardNavbar">
+              <NavLink to="/phase3-frontend-react/CreateCard" exact className="CardNavbar">
                 Create Card
               </NavLink>
             </Nav.Link>
