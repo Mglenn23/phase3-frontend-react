@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 import "../App.css";
 function CardNavbar() {
   return (
-    <div>
+    <>
       <Navbar bg="dark" variant="dark">
         <Container>
           <Navbar.Brand>
@@ -32,7 +32,7 @@ function CardNavbar() {
           </Nav>
         </Container>
       </Navbar>
-    </div>
+    </>
   );
 }
 export default CardNavbar;
