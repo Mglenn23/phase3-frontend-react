@@ -7,7 +7,6 @@ import React, { useEffect, useState } from "react";
 
 import ListCard from "./ListCard";
 function CreateCard() {
-  const [dataDelete, setDataDelete] = useState([]);
   const [dataEdit, setDataEdit] = useState([]);
   const [dataUser, setDataUser] = useState([]);
   const [dataTypes, setDataTypes] = useState([]);
@@ -103,10 +102,8 @@ function CreateCard() {
     setHandlerType(1);
     setHandlerAttack(1000);
     setHandlerDefense(1000);
-
-    // console.log(createdCard);
   }
-  //   http://localhost:9292/edit_card/3
+
   function handlerEditCard(e) {
     e.preventDefault();
 
@@ -237,7 +234,6 @@ function CreateCard() {
                               }}
                             >
                               {dataTypes.map((dat) => {
-                                //   console.log(dat.type_name);
                                 return <option value={dat.id}>{dat.type_name}</option>;
                               })}
                             </Form.Select>

@@ -8,10 +8,8 @@ import React, { useEffect, useState } from "react";
 
 import { Routes, Route } from "react-router-dom";
 function App() {
-  // Put on state to pass the data as props
   const [gameData, setGameData] = useState([]);
 
-  // Grab the Game data from backend
   useEffect(() => {
     fetch("https://backend-phase2-project.herokuapp.com/Game")
       .then((res) => res.json())

@@ -2,14 +2,13 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Swal from "sweetalert2";
 import Card from "react-bootstrap/Card";
-import AnimationVid from "./allSkill.gif";
+import AnimationVid from "./img/allSkill.gif";
 import React, { useEffect, useState } from "react";
 import ProgressBar from "react-bootstrap/ProgressBar";
 
 function GamePlay() {
   const [dataUser, setDataUser] = useState([]);
   const [dataTypes, setDataTypes] = useState([]);
-  //   const [dataCards, setDataCards] = useState([]);
 
   const [show, setShow] = useState(false);
   const [showRegis, setShowRegis] = useState(false);
@@ -41,10 +40,9 @@ function GamePlay() {
 
   const [reset, setReset] = useState([]);
   const [arrStatus, setArrStatus] = useState([]);
-  const [hp, setHp] = useState([40]);
+  const [hp, setHp] = useState([100]);
   const [hpColor, setHpColor] = useState("success");
 
-  //   let arrCardBot = [];
   useEffect(() => {
     fetch("https://last-airbender-api.herokuapp.com/api/v1/characters/random")
       .then((res) => res.json())
@@ -89,13 +87,11 @@ function GamePlay() {
   }, [reset]);
 
   useEffect(() => {
-    console.log("bukan ini:" + arrStatus);
-    console.log(dataUser);
     const counts = {};
     arrStatus.forEach(function (x) {
       counts[x] = (counts[x] || 0) + 1;
     });
-    console.log(counts.lose);
+
     if (hp >= 61) {
       setHpColor("success");
     } else if (hp <= 60 && hp > 30) {
@@ -134,12 +130,6 @@ function GamePlay() {
   }, [arrStatus]);
 
   useEffect(() => {
-    // console.log(randomElement.type_name);
-    // console.log(randomPlayer.type_name);
-    // console.log(randomEnemy.type_name);
-
-    // console.log(randomElement);
-
     function total_Attack_Same_Name(val) {
       return parseInt(val.card_attack) + 200;
     }
@@ -178,14 +168,7 @@ function GamePlay() {
     } else {
       setTextGotElement("elementColorNone");
     }
-
-    // console.log("rand el:" + random_element);
-    // console.log("enemy el:" + enemy_element);
-    // console.log("player el:" + player_element);
-
-    // setPlayerGot(total_Attack_Player);
   }, [randomElement]);
-  //   console.log(randomPlayer);
 
   function handlerLoginUser(event) {
     setHandlerUser(event.target.value);
@@ -214,29 +197,36 @@ function GamePlay() {
   }
   function handlerRegister(e) {
     e.preventDefault();
-    console.log(handlerRegisterUser);
-    console.log(handlerRegisterPasswordUser);
-    console.log(handlerRegisterSelectRole);
-    const createdUser = {
-      user_name: handlerRegisterUser,
-      user_password: handlerRegisterPasswordUser,
-      user_role: handlerRegisterSelectRole,
-    };
-
-    fetch("http://localhost:9292/add_user", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(createdUser),
-    });
-    Swal.fire({
-      title: "User Registered",
-      text: "Successfully added!",
-      icon: "success",
-    });
-    setShowRegis(false);
-    e.target.reset();
+    let userName;
+    let exist = dataUser.find((data) => handlerRegisterUser == data.user_name);
+    if (!exist) {
+      const createdUser = {
+        user_name: handlerRegisterUser,
+        user_password: handlerRegisterPasswordUser,
+        user_role: handlerRegisterSelectRole,
+      };
+      fetch("http://localhost:9292/add_user", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(createdUser),
+      });
+      Swal.fire({
+        title: "User Registered",
+        text: "Successfully added!",
+        icon: "success",
+      });
+      setShowRegis(false);
+      e.target.reset();
+    } else {
+      setTimeout(() => {
+        setShowErrorText(true);
+      }, 250);
+      setTimeout(() => {
+        setShowErrorText(false);
+      }, 1200);
+    }
   }
 
   return (
@@ -284,6 +274,7 @@ function GamePlay() {
                             <option>user</option>
                             <option>admin</option>
                           </Form.Select>
+                          {showErrorText ? <h5 style={{ color: "red" }}>Username registered!</h5> : ""}
                         </Form.Group>
                         <Button id="buttonPick" variant="secondary" type="submit">
                           Create
@@ -338,7 +329,6 @@ function GamePlay() {
                 <h1 id="battleGame" className="font-weight-bold">
                   Versus
                 </h1>
-                {/* {"Welcome! " + dataUser.name} */}
                 <div className="col-lg-8 align-self-end">
                   <div style={{ display: "flex", flexDirection: "row", padding: "5%" }}>
                     <Card border="primary" style={{ flex: 1 }}>
@@ -433,14 +423,7 @@ function GamePlay() {
                     type="submit"
                     onClick={(e) => {
                       e.preventDefault();
-
-                      // console.log("Attack Player:" + attackPlayer);
-                      // console.log("Defense Player:" + defensePlayer);
-                      // console.log("Attack Enemy:" + attackEnemy);
-                      // console.log("Defense Enemy:" + defenseEnemy);
                       if (attackPlayer == attackEnemy) {
-                        // newArray.push("draw");
-
                         let copyArr = arrStatus.slice();
                         copyArr.push("draw");
                         setArrStatus(copyArr);
@@ -464,7 +447,6 @@ function GamePlay() {
                           icon: "success",
                         });
                       } else if (attackPlayer < attackEnemy) {
-                        // newArray.push("lose");
                         let copyArr = arrStatus.slice();
                         copyArr.push("lose");
                         let totalHp = parseInt(hp) - 20;
@@ -483,22 +465,6 @@ function GamePlay() {
                       setRandomElement([]);
                       setPlayerGot([]);
                       setEnemyGot([]);
-                      //   Swal.fire({
-                      //     title: "",
-                      //     width: 890,
-                      //     padding: "3em",
-                      //     imageUrl: "https://media0.giphy.com/media/1vCU6WV0ilmZG/200.gif) ",
-                      //     imageHeight: 400,
-                      //     showConfirmButton: false,
-                      //     timer: 4650,
-                      //     background: `#fff url(${AnimationVid}) no-repeat center`,
-                      //     backdrop: `
-                      //     rgba(0, 0, 0, 0.89)
-                      //           url("/images/nyan-cat.gif")
-                      //           left top
-                      //           no-repeat
-                      //         `,
-                      //   });
                     }}
                   >
                     Attack

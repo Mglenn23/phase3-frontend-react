@@ -1,70 +1,82 @@
-# Getting Started with Create React App
+# Suit Game By MG
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> This project backend in github repository:
+> [https://github.com/Mglenn23/backend-phase2-project](https://github.com/Mglenn23/backend-phase2-project)
+
+Avatar game front end created using react, bootstrap, css, sweetalert2. backend using sinatra ruby. To play this game, the player needs to register their account for login. Player need to choose pick element or direct attack. If player choose pick element, random element and status opponent will show up. If the random element is same with player/enemy element, attack power +200. Player have 100hp maximum and each time win, player get +10hp, each lose -20hp. To win the game, by compare attack power player with enemy.
+
+## Table of Contents
+
+- [Available Scripts](#available-scripts)
+- [General Info](#general-information)
+- [Tools Used](#tools-used)
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [Room for Improvement](#room-for-improvement)
+- [Acknowledgements](#acknowledgements)
+- [Contact](#contact)
 
 ## Available Scripts
 
 In the project directory, you can run:
 
+### `npm install`
+
+Install all scripts needed
+
 ### `npm start`
 
+After npm install
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## General Information
 
-### `npm test`
+- Deployed db.json in heroku
+- One page load without refresh the page, using react-router
+- Create react app using npx create-react-app
+- Simple design website with interactive game play with bot
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tools Used
 
-### `npm run build`
+- Bootstrap - https://react-bootstrap.github.io/
+- Sweetalert2 - https://sweetalert2.github.io/recipe-gallery/sweetalert2-react.html
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+List the ready features here:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Play with bot
+- Players leaderboard(how many correct, wrong, draw & play time)
 
-### `npm run eject`
+## Screenshots
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Home](./img/HomePage.jpg)
+![Input Name](./img/GamePageInputName.jpg)
+![Player Choose](./img/GamePageChoose.jpg)
+![Player vs Bot](./img/GamePageAfterChoose.jpg)
+![How to Play Page](./img/HowToPlay.jpg)
+![Leaderboard Page](./img/LeaderBoard.jpg)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Room for Improvement
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+There is a plan for improvement with this project, to make this game more interactive.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Room for improvement:
 
-## Learn More
+- Improvement to be done animation and design more interactive
+- Improvement to be done add another game mode
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To do:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Feature to be added mode player 1 vs player 2
 
-### Code Splitting
+## Acknowledgements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- This project was inspired by my childhood called suit game played with my friends.
+- Many thanks to my Flatiron school lectures
+- This is my phase2 project at Flatiron school
 
-### Analyzing the Bundle Size
+## Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Created by [@mg](https://www.linkedin.com/in/michael-gunawan-030a52194/) - feel free to contact me!
