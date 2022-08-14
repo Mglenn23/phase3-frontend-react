@@ -1,4 +1,4 @@
-# Suit Game By MG
+# Avatar Game By MG
 
 > This project backend in github repository:
 > [https://github.com/Mglenn23/backend-phase2-project](https://github.com/Mglenn23/backend-phase2-project)
