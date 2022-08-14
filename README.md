@@ -7,7 +7,6 @@ Avatar game front end created using react, bootstrap, css, sweetalert2. backend 
 
 ## Table of Contents
 
-- [Available Scripts](#available-scripts)
 - [General Info](#general-information)
 - [Tools Used](#tools-used)
 - [Features](#features)
@@ -16,26 +15,13 @@ Avatar game front end created using react, bootstrap, css, sweetalert2. backend 
 - [Acknowledgements](#acknowledgements)
 - [Contact](#contact)
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm install`
-
-Install all scripts needed
-
-### `npm start`
-
-After npm install
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
 ## General Information
 
-- Deployed db.json in heroku
 - One page load without refresh the page, using react-router
-- Create react app using npx create-react-app
-- Simple design website with interactive game play with bot
+- Create, update, delete card data
+- Backend use sinatara ruby on rails
+- Leaderboard game
+- Simple design website with interactive game play with Enemy
 
 ## Tools Used
 
@@ -46,17 +32,24 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 List the ready features here:
 
-- Play with bot
-- Players leaderboard(how many correct, wrong, draw & play time)
+- Play with Enemy
+- Players leaderboard(how many win, lose, draw & play time)
+- Choose element and attack
 
 ## Screenshots
 
-![Home](./img/HomePage.jpg)
-![Input Name](./img/GamePageInputName.jpg)
-![Player Choose](./img/GamePageChoose.jpg)
-![Player vs Bot](./img/GamePageAfterChoose.jpg)
-![How to Play Page](./img/HowToPlay.jpg)
-![Leaderboard Page](./img/LeaderBoard.jpg)
+![](./screenshoot/Home.jpg)
+![](./screenshoot/Login.jpg)
+![](./screenshoot/Register.jpg)
+![](./screenshoot/GamePlay.jpg)
+![](./screenshoot/ChooseElement.jpg)
+![](./screenshoot/ChooseElement2.jpg)
+![](./screenshoot/Notification.jpg)
+![](./screenshoot/LoginAdmin.jpg)
+![](./screenshoot/CardList.jpg)
+![](./screenshoot/CreateCard.jpg)
+![](./screenshoot/EditCard.jpg)
+![](./screenshoot/Leaderboard.jpg)
 
 ## Room for Improvement
 
@@ -64,18 +57,15 @@ There is a plan for improvement with this project, to make this game more intera
 
 Room for improvement:
 
-- Improvement to be done animation and design more interactive
-- Improvement to be done add another game mode
-
-To do:
-
-- Feature to be added mode player 1 vs player 2
+- Improvement to be done attack power compare with defend power
+- Improvement to be done more feature with element
+- Improvement to be done more challange for player to choose
 
 ## Acknowledgements
 
-- This project was inspired by my childhood called suit game played with my friends.
+- This project was inspired by my childhood movie avatar the legend of Aang.
 - Many thanks to my Flatiron school lectures
-- This is my phase2 project at Flatiron school
+- This is my phase3 project at Flatiron school
 
 ## Contact
 
