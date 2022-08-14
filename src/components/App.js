@@ -23,7 +23,7 @@ function App() {
       <div className="App-header">
         <Navbar />
         <Routes>
-          <Route exact path="/" element={<Home />} />
+          <Route exact path="/phase3-frontend-react/" element={<Home />} />
 
           <Route exact path="/phase3-frontend-react/CreateCard" element={<CreateCard />} />
           <Route exact path="/phase3-frontend-react/Leaderboard" element={<Leaderboard />} />

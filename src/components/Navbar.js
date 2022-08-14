@@ -9,7 +9,7 @@ function CardNavbar() {
       <Navbar bg="dark" variant="dark">
         <Container>
           <Navbar.Brand>
-            <NavLink to="/" exact className="CardNavbar">
+            <NavLink to="/phase3-frontend-react/" exact className="CardNavbar">
               <img id="imgNavbar" src="https://www.seekpng.com/png/full/768-7683212_the-last-airbender-avatar-the-legend-of-aang.png" />
             </NavLink>
           </Navbar.Brand>
