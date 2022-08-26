@@ -5,7 +5,7 @@ function Leaderboard() {
   const [dataLeaderboard, setDataLeaderboard] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:9292//get_leaderboard")
+    fetch("http://localhost:9292/leaderboards")
       .then((res) => res.json())
       .then((data) => setDataLeaderboard(data));
   }, []);

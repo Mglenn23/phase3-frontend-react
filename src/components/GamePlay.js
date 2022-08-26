@@ -114,7 +114,7 @@ function GamePlay() {
         user_id: dataUser.id,
       };
 
-      fetch("http://localhost:9292/add_leaderboard", {
+      fetch("http://localhost:9292/leaderboards", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -198,7 +198,7 @@ function GamePlay() {
         user_name: handlerRegisterUser,
         user_role: handlerRegisterSelectRole,
       };
-      fetch("http://localhost:9292/add_user", {
+      fetch("http://localhost:9292/users", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

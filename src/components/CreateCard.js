@@ -82,7 +82,7 @@ function CreateCard() {
       user_id: dataUser,
     };
 
-    fetch("http://localhost:9292/create_card", {
+    fetch("http://localhost:9292/cards", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -103,7 +103,7 @@ function CreateCard() {
   function handlerEditCard(e) {
     e.preventDefault();
 
-    fetch(`http://localhost:9292/edit_card/${dataEdit.id}`, {
+    fetch(`http://localhost:9292/cards/${dataEdit.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -340,7 +340,7 @@ function CreateCard() {
                                 onClick={(e) => {
                                   e.preventDefault();
 
-                                  fetch(`http://localhost:9292/delete_card/${dataEdit.id}`, {
+                                  fetch(`http://localhost:9292/cards/${dataEdit.id}`, {
                                     method: "delete",
                                     headers: {
                                       "Content-Type": "application/json",
