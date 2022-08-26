@@ -15,10 +15,8 @@ function GamePlay() {
   const [showErrorText, setShowErrorText] = useState(false);
   const [showEnemyStatus, setShowEnemyStatus] = useState(false);
   const [handlerUser, setHandlerUser] = useState([]);
-  const [handlerPasswordUser, setHandlerPasswordUser] = useState([]);
 
   const [handlerRegisterUser, setHandlerRegisterUser] = useState([]);
-  const [handlerRegisterPasswordUser, setHandlerRegisterPasswordUser] = useState([]);
   const [handlerRegisterSelectRole, setHandlerRegisterSelectRole] = useState("user");
 
   const [randomPhotoPlayer, setRandomPhotoPlayer] = useState([]);
@@ -70,14 +68,14 @@ function GamePlay() {
       .then((data) => setDataTypes(data));
   }, []);
   useEffect(() => {
-    fetch("http://localhost:9292/get_Card_data")
+    fetch("http://localhost:9292/get_card_data")
       .then((res) => res.json())
       .then((data) => {
         setRandomPlayer(data);
         setAttackPlayer(data.card_attack);
         setDefensePlayer(data.card_defense);
       });
-    fetch("http://localhost:9292/get_Card_data")
+    fetch("http://localhost:9292/get_card_data")
       .then((res) => res.json())
       .then((data) => {
         setRandomEnemy(data);
@@ -173,15 +171,12 @@ function GamePlay() {
   function handlerLoginUser(event) {
     setHandlerUser(event.target.value);
   }
-  function handlerLoginPasswordUser(event) {
-    setHandlerPasswordUser(event.target.value);
-  }
 
   function handlerLogin(e) {
     e.preventDefault();
     if (handlerUser.length > 0) {
       dataUser.find((data) => {
-        if (data.user_name == handlerUser && data.user_password == handlerPasswordUser) {
+        if (data.user_name == handlerUser) {
           setDataUser({ id: data.id, name: data.user_name });
           setShow(true);
         } else {
@@ -197,12 +192,10 @@ function GamePlay() {
   }
   function handlerRegister(e) {
     e.preventDefault();
-    let userName;
     let exist = dataUser.find((data) => handlerRegisterUser == data.user_name);
     if (!exist) {
       const createdUser = {
         user_name: handlerRegisterUser,
-        user_password: handlerRegisterPasswordUser,
         user_role: handlerRegisterSelectRole,
       };
       fetch("http://localhost:9292/add_user", {
@@ -254,16 +247,6 @@ function GamePlay() {
                             }}
                             style={{ width: "50%", marginLeft: "25%" }}
                           />
-                          <Form.Control
-                            type="password"
-                            placeholder="Password"
-                            required
-                            onChange={(e) => {
-                              e.preventDefault();
-                              setHandlerRegisterPasswordUser(e.target.value);
-                            }}
-                            style={{ width: "50%", marginLeft: "25%" }}
-                          />
 
                           <Form.Select
                             style={{ width: "50%", marginLeft: "25%" }}
@@ -302,7 +285,6 @@ function GamePlay() {
                       <Form onSubmit={handlerLogin}>
                         <Form.Group className="mb-3" style={{ paddingBottom: "20px" }}>
                           <Form.Control type="text" placeholder="User Name" required onChange={handlerLoginUser} style={{ width: "50%", marginLeft: "25%" }} />
-                          <Form.Control type="password" placeholder="Password" required onChange={handlerLoginPasswordUser} style={{ width: "50%", marginLeft: "25%" }} />
 
                           {showErrorText ? <h5 style={{ color: "red" }}>Account not registered!</h5> : ""}
                         </Form.Group>
