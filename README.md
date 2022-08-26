@@ -1,7 +1,9 @@
 # Avatar Game By MG
 
+frontend deployed link : https://mglenn23.github.io/phase3-frontend-react/
+
 > This project backend in github repository:
-> [https://github.com/Mglenn23/backend-phase2-project](https://github.com/Mglenn23/backend-phase2-project)
+> [https://github.com/Mglenn23/phase-3-sinatra-react-project](https://github.com/Mglenn23/phase-3-sinatra-react-project)
 
 Avatar game front end created using react, bootstrap, css, sweetalert2. backend using sinatra ruby. To play this game, the player needs to register their account for login. Player need to choose pick element or direct attack. If player choose pick element, random element and status opponent will show up. If the random element is same with player/enemy element, attack power +200. Player have 100hp maximum and each time win, player get +10hp, each lose -20hp. To win the game, by compare attack power player with enemy.
 
@@ -19,7 +21,7 @@ Avatar game front end created using react, bootstrap, css, sweetalert2. backend 
 
 - One page load without refresh the page, using react-router
 - Create, update, delete card data
-- Backend use sinatara ruby on rails
+- Backend use sinatara ruby 
 - Leaderboard game
 - Simple design website with interactive game play with Enemy
 
