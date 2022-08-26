@@ -17,7 +17,6 @@ function CreateCard() {
   const [showChoose, setShowChoose] = useState(false);
   const [showErrorText, setShowErrorText] = useState(false);
   const [handlerUser, setHandlerUser] = useState([]);
-  const [handlerPasswordUser, setHandlerPasswordUser] = useState([]);
   const [handlerCardName, setHandlerCardName] = useState("No Name");
   const [handlerType, setHandlerType] = useState(1);
   const [handlerAttack, setHandlerAttack] = useState(1000);
@@ -71,9 +70,6 @@ function CreateCard() {
   function handlerLoginUser(event) {
     setHandlerUser(event.target.value);
   }
-  function handlerLoginPasswordUser(event) {
-    setHandlerPasswordUser(event.target.value);
-  }
 
   function handlerSubmitCard(e) {
     e.preventDefault();
@@ -86,7 +82,7 @@ function CreateCard() {
       user_id: dataUser,
     };
 
-    fetch("http://localhost:9292/create_card", {
+    fetch("http://localhost:9292/cards", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -107,7 +103,7 @@ function CreateCard() {
   function handlerEditCard(e) {
     e.preventDefault();
 
-    fetch(`http://localhost:9292/edit_card/${dataEdit.id}`, {
+    fetch(`http://localhost:9292/cards/${dataEdit.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -138,22 +134,14 @@ function CreateCard() {
     if (handlerUser.length > 0) {
       dataUser.find((data) => {
         if (data.user_name == handlerUser) {
-          if (data.user_password == handlerPasswordUser)
-            if (data.user_role == "admin") {
-              setDataUser(data.id);
-              setShow(true);
-            } else {
-              Swal.fire({
-                title: "Not Authorized",
-                text: "Must be admin!",
-                icon: "error",
-              });
-            }
-          else {
+          if (data.user_role == "admin") {
+            setDataUser(data.id);
+            setShow(true);
+          } else {
             Swal.fire({
-              title: "Not valid!",
-              text: "Password not match!",
-              icon: "warning",
+              title: "Not Authorized",
+              text: "Must be admin!",
+              icon: "error",
             });
           }
         } else {
@@ -177,7 +165,6 @@ function CreateCard() {
                 <Form.Group className="mb-3">
                   <Form.Label>Admin Login</Form.Label>
                   <Form.Control type="text" placeholder="Admin Name" required onChange={handlerLoginUser} />
-                  <Form.Control type="password" placeholder="Password" required onChange={handlerLoginPasswordUser} />
                   <Form.Text className="text-muted">Only admin can add new card!</Form.Text>
 
                   {showErrorText ? <h5 style={{ color: "red" }}>Account not registered!</h5> : ""}
@@ -353,7 +340,7 @@ function CreateCard() {
                                 onClick={(e) => {
                                   e.preventDefault();
 
-                                  fetch(`http://localhost:9292/delete_card/${dataEdit.id}`, {
+                                  fetch(`http://localhost:9292/cards/${dataEdit.id}`, {
                                     method: "delete",
                                     headers: {
                                       "Content-Type": "application/json",
